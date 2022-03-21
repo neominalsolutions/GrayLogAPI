@@ -1,0 +1,29 @@
+{
+  "Serilog": {
+    "Using": [ "Serilog.Sinks.Graylog", "Serilog.Sinks.Console" ],
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Information",
+        "System": "Warning"
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "Graylog",
+        "Args": {
+          "hostnameOrAddress": "127.0.0.1",
+          "port": "12201",
+          "transportType": "Udp",
+          "facility": "GrayLogAPI"
+        }
+      },
+      {
+        "Name": "Console"
+      }
+    ],
+    "Properties": {
+      "Application": "GrayLogAPI"
+    }
+  }
+}
